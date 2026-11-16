@@ -160,68 +160,6 @@ svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke
 #loginCard .btn.big:after{content:"";position:absolute;left:7%;right:7%;top:2px;height:46%;border-radius:999px;background:linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,0));pointer-events:none}
 #loginCard .btn.big:hover{transform:translateY(-1px)}#loginCard .btn.big:active{transform:scale(.98)}
 #loginCard .lnk{color:var(--mut)}
-
-/* ===== Nouvelle interface de connexion : inspiration macOS / Liquid Glass ===== */
-#ovLogin{
-  background:
-    radial-gradient(ellipse at 12% 18%,rgba(255,224,218,.92),transparent 38%),
-    radial-gradient(ellipse at 86% 18%,rgba(117,166,255,.78),transparent 42%),
-    radial-gradient(ellipse at 78% 88%,rgba(255,207,222,.88),transparent 38%),
-    radial-gradient(ellipse at 18% 82%,rgba(132,157,255,.88),transparent 45%),
-    linear-gradient(135deg,#d9d9ff 0%,#b8c9ff 48%,#e8d7f4 100%);
-  padding:24px; isolation:isolate;
-}
-#ovLogin:before,#ovLogin:after{content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:48%;filter:blur(2px);}
-#ovLogin:before{width:78vw;height:48vw;left:-24vw;top:35%;background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(255,255,255,0));transform:rotate(18deg)}
-#ovLogin:after{width:85vw;height:45vw;right:-28vw;bottom:-18%;background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,0));transform:rotate(-24deg)}
-#ovLogin .orbs{opacity:.45}
-#ovLogin .orbs i{filter:blur(65px);opacity:.65}
-#loginCard{
-  width:min(632px,100%);padding:48px 68px 38px;border-radius:54px;text-align:center;
-  background:linear-gradient(145deg,rgba(255,255,255,.58),rgba(255,255,255,.24));
-  -webkit-backdrop-filter:blur(42px) saturate(190%);backdrop-filter:blur(42px) saturate(190%);
-  border:1px solid rgba(255,255,255,.68);
-  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.28),0 30px 90px rgba(65,78,150,.22);
-  color:#17213d;
-}
-[data-theme=dark] #loginCard{background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,.08));color:#f5f6ff;border-color:rgba(255,255,255,.32)}
-#loginCard .lgl{width:112px;height:112px;margin:0 auto 14px;filter:drop-shadow(0 12px 20px rgba(87,91,190,.25));}
-#loginCard h1{font:700 40px/1.15 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-1.3px;margin:12px 0 8px;color:#17213d}
-[data-theme=dark] #loginCard h1{color:#fff}
-#loginCard>p{font:500 18px/1.5 system-ui,-apple-system,sans-serif;color:#59658d;margin:0 0 30px}
-[data-theme=dark] #loginCard>p{color:#d5daf4}
-#lt{display:flex;width:100%;padding:4px;margin:0 0 22px;border-radius:28px;background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 2px 8px rgba(47,58,112,.07)}
-#lt button{flex:1;min-height:48px;border-radius:24px;font-size:15px;font-weight:600;color:#4f5a80}
-#lt button.on{color:#fff;background:linear-gradient(110deg,#4389ff,#a94ff2);box-shadow:0 7px 20px rgba(105,99,255,.34),inset 0 1px 0 rgba(255,255,255,.45)}
-[data-theme=dark] #lt button{color:#e4e7ff}
-#loginCard .fld{min-height:60px;display:flex;align-items:center;gap:12px;padding:0 20px;margin-top:16px;border-radius:30px;background:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.75);box-shadow:inset 0 1px 5px rgba(52,65,120,.07);color:#58658f}
-[data-theme=dark] #loginCard .fld{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#e6eaff}
-#loginCard .fld svg{width:21px;height:21px;flex:none}
-#loginCard .fld input{flex:1;min-width:0;height:56px;margin:0;padding:0;background:transparent;border:0;outline:0;box-shadow:none;color:#253052;font:500 17px system-ui,-apple-system,sans-serif}
-#loginCard .fld input::placeholder{color:#68749a;opacity:1}
-[data-theme=dark] #loginCard .fld input{color:#fff}
-[data-theme=dark] #loginCard .fld input::placeholder{color:#d5daf4}
-#loginCard .eye{padding:5px;color:inherit}
-#loginCard .btn.big{width:100%;min-height:64px;margin-top:22px;padding:16px 22px;border:1px solid rgba(255,255,255,.55);border-radius:34px;background:linear-gradient(105deg,#347fff 0%,#655bff 55%,#bd42ed 100%);box-shadow:0 12px 28px rgba(91,94,245,.32),inset 0 1px 0 rgba(255,255,255,.6);color:white;font:650 17px system-ui,-apple-system,sans-serif}
-#loginCard .btn.big:before{content:"";display:inline-block;width:0;height:0}
-#loginCard .btn.big:after{content:"→";position:static;display:inline-block;margin-left:12px;width:auto;height:auto;border-radius:0;background:none;font-size:21px;vertical-align:-1px}
-#loginCard .lnk{margin-top:16px;color:#626e96;font:500 15px system-ui,-apple-system,sans-serif;text-decoration:none}
-#loginCard .lnk:hover{text-decoration:underline;color:#5962da}
-#loginCard .am{font-size:13px}
-@media(max-width:600px){
- #ovLogin{padding:16px}
- #loginCard{width:min(100%,480px);padding:34px 22px 28px;border-radius:36px}
- #loginCard .lgl{width:88px;height:88px}
- #loginCard h1{font-size:32px}
- #loginCard>p{font-size:15px;margin-bottom:24px}
- #lt button{font-size:13px;min-height:44px}
- #loginCard .fld{min-height:56px;padding:0 16px}
- #loginCard .fld input{font-size:15px;height:52px}
- #loginCard .btn.big{min-height:58px;font-size:15px}
-}
-@media(prefers-reduced-motion:reduce){#ovLogin:before,#ovLogin:after{animation:none!important}}
-
-
 </style>
 </head>
 <body>
