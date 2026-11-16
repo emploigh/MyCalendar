@@ -130,7 +130,21 @@ svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke
 #loginCard:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;
  background:linear-gradient(140deg,rgba(255,255,255,.95),rgba(255,255,255,0) 38%,rgba(255,255,255,0) 62%,rgba(255,255,255,.65));
  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
-#loginCard .lgl{width:86px;height:86px;border-radius:26px;border:1px solid rgba(255,255,255,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 14px 36px color-mix(in srgb,var(--acc) 40%,transparent)}
+#loginCard .lgl{display:block;width:62px;height:62px;object-fit:contain;margin:0 auto 10px;filter:drop-shadow(0 8px 16px color-mix(in srgb,var(--acc) 24%,transparent));animation:logoFloat 5s ease-in-out infinite}
+@keyframes logoFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-5px) rotate(2deg)}}
+#lt button{position:relative;transition:transform .28s cubic-bezier(.2,.8,.2,1),background .28s,box-shadow .28s,color .28s}
+#lt button:hover{transform:translateY(-2px) scale(1.025)}
+#lt button:active{transform:translateY(0) scale(.96)}
+#lt button.on{animation:tabSelect .38s cubic-bezier(.2,.9,.25,1)}
+@keyframes tabSelect{0%{transform:scale(.94)}65%{transform:scale(1.055)}100%{transform:scale(1)}}
+#loginCard.signup-mode .fld{animation:fieldIn .42s both}
+#loginCard.signup-mode .fld:nth-of-type(2){animation-delay:.05s}
+#loginCard.signup-mode .fld:nth-of-type(3){animation-delay:.1s}
+@keyframes fieldIn{from{opacity:.55;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+#loginCard .btn.big{transition:transform .28s cubic-bezier(.2,.8,.2,1),filter .28s,box-shadow .28s}
+#loginCard .btn.big:hover{transform:translateY(-3px) scale(1.015);filter:brightness(1.07);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.75),inset 0 -10px 18px rgba(0,0,0,.14),0 17px 34px color-mix(in srgb,var(--acc) 55%,transparent)}
+#loginCard .btn.big:active{transform:translateY(0) scale(.975)}
+@media(prefers-reduced-motion:reduce){#loginCard .lgl,#lt button.on,#loginCard.signup-mode .fld{animation:none!important}#lt button,#loginCard .btn.big{transition:none}}
 #loginCard h1{margin:14px 0 4px;font:28px var(--df);letter-spacing:.3px;color:var(--fg);background:none;-webkit-background-clip:border-box;background-clip:border-box}
 #loginCard>p{margin:0 0 18px;color:var(--mut)}
 #lt{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px;box-shadow:inset 0 2px 5px rgba(0,0,0,.08);margin:0 0 6px}
@@ -146,6 +160,68 @@ svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke
 #loginCard .btn.big:after{content:"";position:absolute;left:7%;right:7%;top:2px;height:46%;border-radius:999px;background:linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,0));pointer-events:none}
 #loginCard .btn.big:hover{transform:translateY(-1px)}#loginCard .btn.big:active{transform:scale(.98)}
 #loginCard .lnk{color:var(--mut)}
+
+/* ===== Nouvelle interface de connexion : inspiration macOS / Liquid Glass ===== */
+#ovLogin{
+  background:
+    radial-gradient(ellipse at 12% 18%,rgba(255,224,218,.92),transparent 38%),
+    radial-gradient(ellipse at 86% 18%,rgba(117,166,255,.78),transparent 42%),
+    radial-gradient(ellipse at 78% 88%,rgba(255,207,222,.88),transparent 38%),
+    radial-gradient(ellipse at 18% 82%,rgba(132,157,255,.88),transparent 45%),
+    linear-gradient(135deg,#d9d9ff 0%,#b8c9ff 48%,#e8d7f4 100%);
+  padding:24px; isolation:isolate;
+}
+#ovLogin:before,#ovLogin:after{content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:48%;filter:blur(2px);}
+#ovLogin:before{width:78vw;height:48vw;left:-24vw;top:35%;background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(255,255,255,0));transform:rotate(18deg)}
+#ovLogin:after{width:85vw;height:45vw;right:-28vw;bottom:-18%;background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,0));transform:rotate(-24deg)}
+#ovLogin .orbs{opacity:.45}
+#ovLogin .orbs i{filter:blur(65px);opacity:.65}
+#loginCard{
+  width:min(632px,100%);padding:48px 68px 38px;border-radius:54px;text-align:center;
+  background:linear-gradient(145deg,rgba(255,255,255,.58),rgba(255,255,255,.24));
+  -webkit-backdrop-filter:blur(42px) saturate(190%);backdrop-filter:blur(42px) saturate(190%);
+  border:1px solid rgba(255,255,255,.68);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.28),0 30px 90px rgba(65,78,150,.22);
+  color:#17213d;
+}
+[data-theme=dark] #loginCard{background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,.08));color:#f5f6ff;border-color:rgba(255,255,255,.32)}
+#loginCard .lgl{width:112px;height:112px;margin:0 auto 14px;filter:drop-shadow(0 12px 20px rgba(87,91,190,.25));}
+#loginCard h1{font:700 40px/1.15 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-1.3px;margin:12px 0 8px;color:#17213d}
+[data-theme=dark] #loginCard h1{color:#fff}
+#loginCard>p{font:500 18px/1.5 system-ui,-apple-system,sans-serif;color:#59658d;margin:0 0 30px}
+[data-theme=dark] #loginCard>p{color:#d5daf4}
+#lt{display:flex;width:100%;padding:4px;margin:0 0 22px;border-radius:28px;background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 2px 8px rgba(47,58,112,.07)}
+#lt button{flex:1;min-height:48px;border-radius:24px;font-size:15px;font-weight:600;color:#4f5a80}
+#lt button.on{color:#fff;background:linear-gradient(110deg,#4389ff,#a94ff2);box-shadow:0 7px 20px rgba(105,99,255,.34),inset 0 1px 0 rgba(255,255,255,.45)}
+[data-theme=dark] #lt button{color:#e4e7ff}
+#loginCard .fld{min-height:60px;display:flex;align-items:center;gap:12px;padding:0 20px;margin-top:16px;border-radius:30px;background:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.75);box-shadow:inset 0 1px 5px rgba(52,65,120,.07);color:#58658f}
+[data-theme=dark] #loginCard .fld{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#e6eaff}
+#loginCard .fld svg{width:21px;height:21px;flex:none}
+#loginCard .fld input{flex:1;min-width:0;height:56px;margin:0;padding:0;background:transparent;border:0;outline:0;box-shadow:none;color:#253052;font:500 17px system-ui,-apple-system,sans-serif}
+#loginCard .fld input::placeholder{color:#68749a;opacity:1}
+[data-theme=dark] #loginCard .fld input{color:#fff}
+[data-theme=dark] #loginCard .fld input::placeholder{color:#d5daf4}
+#loginCard .eye{padding:5px;color:inherit}
+#loginCard .btn.big{width:100%;min-height:64px;margin-top:22px;padding:16px 22px;border:1px solid rgba(255,255,255,.55);border-radius:34px;background:linear-gradient(105deg,#347fff 0%,#655bff 55%,#bd42ed 100%);box-shadow:0 12px 28px rgba(91,94,245,.32),inset 0 1px 0 rgba(255,255,255,.6);color:white;font:650 17px system-ui,-apple-system,sans-serif}
+#loginCard .btn.big:before{content:"";display:inline-block;width:0;height:0}
+#loginCard .btn.big:after{content:"→";position:static;display:inline-block;margin-left:12px;width:auto;height:auto;border-radius:0;background:none;font-size:21px;vertical-align:-1px}
+#loginCard .lnk{margin-top:16px;color:#626e96;font:500 15px system-ui,-apple-system,sans-serif;text-decoration:none}
+#loginCard .lnk:hover{text-decoration:underline;color:#5962da}
+#loginCard .am{font-size:13px}
+@media(max-width:600px){
+ #ovLogin{padding:16px}
+ #loginCard{width:min(100%,480px);padding:34px 22px 28px;border-radius:36px}
+ #loginCard .lgl{width:88px;height:88px}
+ #loginCard h1{font-size:32px}
+ #loginCard>p{font-size:15px;margin-bottom:24px}
+ #lt button{font-size:13px;min-height:44px}
+ #loginCard .fld{min-height:56px;padding:0 16px}
+ #loginCard .fld input{font-size:15px;height:52px}
+ #loginCard .btn.big{min-height:58px;font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){#ovLogin:before,#ovLogin:after{animation:none!important}}
+
+
 </style>
 </head>
 <body>
@@ -417,9 +493,9 @@ async function logout(){clearTimeout(pt);try{await doPush()}catch(e){}
   S={theme:"auto",pal:"aurore",hidden:[],notes:{},next:true,span:S.span};sig0=sg();theme();base=[];events=[];render();$("status").textContent="";
   $("ovSet").classList.remove("show");$("ovLogin").classList.add("show")}
 var lm="li";
-$("loginCard").innerHTML=`<h1>MyCalendar⚜️</h1><div class="seg tabs" id=lt><button data-m=li class=on>Connexion</button><button data-m=su>Créer un compte</button></div><label class=fld>${svg("mail")}<input type=text id=em placeholder="Adresse email" autocomplete=email inputmode=email></label><label class=fld>${svg("lock")}<input type=password id=pw placeholder="Mot de passe" autocomplete=current-password><button type=button class=eye id=eye aria-label="Afficher le mot de passe">${svg("eye")}</button></label><button class="btn big" id=gob>Se connecter</button><p class=am id=am></p><button class=lnk id=rp>Mot de passe oublié ?</button>`;
+$("loginCard").innerHTML=`<img class="lgl" src="mycalendar-logo.png" alt="Logo MyCalendar"><h1>MyCalendar</h1><p>Organise tes journées, simplement.</p><div class="seg tabs" id=lt><button data-m=li class=on>Connexion</button><button data-m=su>Créer un compte</button></div><label class=fld>${svg("mail")}<input type=text id=em placeholder="Adresse email" autocomplete=email inputmode=email></label><label class=fld>${svg("lock")}<input type=password id=pw placeholder="Mot de passe" autocomplete=current-password><button type=button class=eye id=eye aria-label="Afficher le mot de passe">${svg("eye")}</button></label><button class="btn big" id=gob>Se connecter</button><p class=am id=am></p><button class=lnk id=rp>Mot de passe oublié ?</button>`;
 $("loginCard").onclick=e=>{const t=e.target.closest("button");if(!t)return;
-  if(t.dataset.m){lm=t.dataset.m;document.querySelectorAll("#lt button").forEach(b=>b.classList.toggle("on",b===t));$("gob").textContent=lm==="su"?"Créer mon compte":"Se connecter";$("pw").autocomplete=lm==="su"?"new-password":"current-password";$("rp").style.display=lm==="su"?"none":"";$("am").textContent="";$("am").className="am"}
+  if(t.dataset.m){lm=t.dataset.m;$("loginCard").classList.toggle("signup-mode",lm==="su");document.querySelectorAll("#lt button").forEach(b=>b.classList.toggle("on",b===t));$("gob").textContent=lm==="su"?"Créer mon compte":"Se connecter";$("pw").autocomplete=lm==="su"?"new-password":"current-password";$("rp").style.display=lm==="su"?"none":"";$("am").textContent="";$("am").className="am"}
   else if(t.id==="eye"){const q=$("pw");q.type=q.type==="password"?"text":"password"}
   else if(t.id==="gob")login(lm);else if(t.id==="rp")login("rp")};
 $("loginCard").onkeydown=e=>{if(e.key==="Enter")login(lm)};
