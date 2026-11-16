@@ -305,7 +305,7 @@ $("abtn").onclick=addUI;$("ovAdd").onclick=e=>{if(e.target.id==="ovAdd")e.target
 $("del").onclick=()=>{if(confirm("Supprimer cet événement (et toute sa répétition) ?")){S.custom=S.custom.filter(c=>c.id!==curEv.cid);save();events=merge();closeEv()}};
 
 /* compte Supabase */
-var SBU="https://yxhbhqeoysrxyfybegae.supabase.co",SBK="COLLE_ICI_LA_CLE_ANON",SK=K+"-sb",ses=null,cm="",pt;
+var SBU="https://yxhbhqeoysrxyfybegae.supabase.co",SBK="sb_publishable_yw0zNqOteQ0SytFaRYBunA_m8ckEIKz",SK=K+"-sb",ses=null,cm="",pt;
 try{ses=JSON.parse(localStorage.getItem(SK)||"null")}catch(e){}
 const escH=x=>String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;"),sbH=t=>({apikey:SBK,"Content-Type":"application/json",Authorization:"Bearer "+(t||SBK)});
 async function auth(path,body){const r=await fetch(SBU+"/auth/v1/"+path,{method:"POST",headers:sbH(),body:JSON.stringify(body)}),j=await r.json().catch(()=>({}));
